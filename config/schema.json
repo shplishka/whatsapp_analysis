@@ -1,0 +1,67 @@
+{
+    "system_prompt": "You are an expert at analyzing IT incident messages in Hebrew. Extract structured information from the message.",
+    
+    "output_format": {
+        "incident_id": {
+            "type": "string",
+            "description": "The incident ID number if present",
+            "required": true
+        },
+        "status": {
+            "type": "string",
+            "description": "Current status in Hebrew",
+            "required": true
+        },
+        "service_affected": {
+            "type": "string",
+            "description": "Name of affected service in Hebrew",
+            "required": true
+        },
+        "platform": {
+            "type": "string",
+            "description": "Name of platform in English",
+            "required": false
+        },
+        "teams": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Team name without the 'צוות' prefix"
+            },
+            "required": true
+        },
+        "impact": {
+            "type": "string",
+            "description": "Impact description in Hebrew",
+            "required": true
+        },
+        "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"],
+            "description": "Incident severity level",
+            "required": true
+        },
+        "action_taken": {
+            "type": "string",
+            "description": "Actions being taken in Hebrew",
+            "required": false
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of incident in Hebrew",
+            "required": true
+        }
+    },
+    
+    "field_transforms": {
+        "teams": {
+            "type": "remove_prefix",
+            "value": "צוות"
+        },
+        "severity": {
+            "type": "normalize",
+            "valid_values": ["critical", "high", "medium", "low"],
+            "default": "medium"
+        }
+    }
+}
