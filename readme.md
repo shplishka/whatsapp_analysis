@@ -246,12 +246,8 @@ Edit `config/config.json` to change:
 - Table names
 - Processing options
 
-## Contributing
+## Installing warnAi
 
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+As a final step, install warnAi visit:
+https://docs.getwren.ai/oss/installation/?utm_source=github&utm_medium=content&utm_campaign=readme
 
-## License
-
-[Shplishka]
